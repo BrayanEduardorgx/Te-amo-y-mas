@@ -1,0 +1,73 @@
+GUIA RAPIDA DE PERSONALIZACION
+=============================
+
+Todo lo personal se edita en:
+
+    js/personalizacion.js
+
+No necesitas modificar experiencia.js, app.js ni estilos.css para cambiar
+nombres, textos, fechas o fotografias.
+
+
+1. NOMBRE Y FRASE DE ENTRADA
+----------------------------
+Busca el apartado:
+
+    entrada: {
+
+Cambia "Para ti" por el nombre y sustituye la frase. Para ocultar toda la
+dedicatoria cambia:
+
+    mostrar: true
+
+por:
+
+    mostrar: false
+
+
+2. FRASE Y FIRMA FINAL
+----------------------
+Busca:
+
+    final: {
+
+Puedes cambiar frase y firma. Usa mostrar: false para ocultar este cierre.
+
+
+3. RECUERDOS, FECHAS Y PALABRAS SECRETAS
+----------------------------------------
+Busca:
+
+    recuerdos: [
+
+Cada bloque tiene palabra, titulo, texto y fecha. La palabra debe aparecer
+exactamente en la letra de la cancion. Puedes duplicar un bloque para añadir
+mas recuerdos o borrarlo para quitarlo.
+
+
+4. FOTOGRAFIAS
+--------------
+Guarda las imagenes en:
+
+    assets/fotos/
+
+Despues busca:
+
+    fotografias: [
+
+Dentro hay ejemplos comentados. Quita // a un bloque y cambia src, desde,
+duracion, titulo y frase.
+
+IMPORTANTE: si fotografias queda como una lista vacia, no se crea ningun
+elemento de galeria y no aparece nada relacionado con fotografias.
+
+
+5. CORAZON DE CHISPAS
+---------------------
+Busca:
+
+    constelacion: {
+
+"desde" indica el segundo de aparicion y "duracion" cuanto permanece.
+Usa mostrar: false para desactivarlo.
+

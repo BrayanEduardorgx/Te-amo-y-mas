@@ -1,0 +1,30 @@
+LUZ PRENDIDA — experiencia de letra interactiva
+================================================
+
+COMO VERLO
+----------
+1. Descomprime el ZIP.
+2. Abre  index.html  (doble clic, o desde un editor con Live Server).
+3. Tira del cordon para empezar. Sube el volumen.
+
+No necesita internet ni instalar nada. Tambien funciona subido a un hosting.
+
+ESTRUCTURA
+----------
+index.html          maquetado, datos de la cancion y orden de carga
+css/estilos.css     estilos y tipografias
+js/                 un modulo por responsabilidad (nucleo, audio, tipografia,
+                    fogata, escenas, guion, app...)
+assets/             la cancion y las fuentes
+
+CONTROLES
+---------
+· Tira del cordon ............ empieza la cancion
+· Manten pulsada la pantalla . la cancion se detiene y la palabra se estira
+· Mueve el dedo / mouse ...... la luz de la lampara te sigue
+· Barra inferior ............. adelantar, retroceder, pausa, stop
+· Teclado .................... espacio = pausa, flechas = -5s / +5s, R = otra vez
+
+Si el audio no suena en iPhone, quita el interruptor de silencio.
+
+@aldair_gg20
