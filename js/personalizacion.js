@@ -11,6 +11,11 @@
       frase: "Hay canciones que se le dedican a una sola persona en esta vida.",
     },
 
+    // TIEMPOS DEFINITIVOS DE LA LETRA
+    // Al terminar el sincronizador, copia la lista que genera y reemplaza [].
+    // Una vez publicada, esta sincronizacion funcionara para todos los visitantes.
+    sincronizacion: [],
+
     // 9. MENSAJE FINAL
     final: {
       mostrar: true,

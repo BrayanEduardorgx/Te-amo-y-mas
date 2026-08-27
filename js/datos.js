@@ -105,8 +105,12 @@
   const sumaPesos = lineas.reduce((s, linea) => s + pesoLinea(linea), 0);
   const tiempoCantado = FIN_VOZ - INICIO_VOZ - (ESTROFAS.length - 1) * PAUSA_ESTROFA;
   const escalaTiempo = tiempoCantado / sumaPesos;
-  let tiemposGuardados = [];
-  try { tiemposGuardados = JSON.parse(localStorage.getItem("eres-tu-tiempos") || "[]"); } catch (e) {}
+  let tiemposGuardados = Array.isArray(NE.personalizacion && NE.personalizacion.sincronizacion)
+    ? NE.personalizacion.sincronizacion.slice()
+    : [];
+  if (!tiemposGuardados.length) {
+    try { tiemposGuardados = JSON.parse(localStorage.getItem("eres-tu-tiempos") || "[]"); } catch (e) {}
+  }
   const tiemposValidos = tiemposGuardados.length === lineas.length &&
     tiemposGuardados.every((t, i) => Number.isFinite(t) && t >= 0 && (!i || t > tiemposGuardados[i - 1]));
   let cursor = INICIO_VOZ;

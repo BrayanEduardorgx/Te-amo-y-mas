@@ -558,6 +558,7 @@
         <button class="sync-marcar" type="button" data-sync="marcar">2. empieza esta frase</button>
         <button type="button" data-sync="deshacer">deshacer</button>
         <button type="button" data-sync="reiniciar">borrar marcas</button>
+        <button type="button" data-sync="copiar" disabled>copiar tiempos</button>
         <button type="button" data-sync="ver">ver resultado</button>
       </div>`;
     const contador = panel.querySelector(".sync-contador");
@@ -570,6 +571,7 @@
       actual.textContent = i >= textos.length ? "Sincronización guardada" : textos[i];
       siguiente.textContent = i + 1 < textos.length ? `después: ${textos[i + 1]}` : "";
       panel.classList.toggle("completo", i >= textos.length);
+      panel.querySelector('[data-sync="copiar"]').disabled = i < textos.length;
     };
     const guardarSync = () => {
       localStorage.setItem("eres-tu-tiempos", JSON.stringify(marcas));
@@ -597,6 +599,16 @@
     panel.querySelector('[data-sync="marcar"]').addEventListener("click", marcar);
     panel.querySelector('[data-sync="deshacer"]').addEventListener("click", () => { marcas.pop(); guardarSync(); });
     panel.querySelector('[data-sync="reiniciar"]').addEventListener("click", () => { marcas = []; guardarSync(); });
+    panel.querySelector('[data-sync="copiar"]').addEventListener("click", async (e) => {
+      const contenido = `sincronizacion: ${JSON.stringify(marcas)},`;
+      try {
+        await navigator.clipboard.writeText(contenido);
+        e.currentTarget.textContent = "tiempos copiados";
+        setTimeout(() => { e.currentTarget.textContent = "copiar tiempos"; }, 1800);
+      } catch (error) {
+        window.prompt("Copia estos tiempos y envíalos por el chat:", contenido);
+      }
+    });
     panel.querySelector('[data-sync="ver"]').addEventListener("click", () => { location.href = location.pathname; });
     window.addEventListener("keydown", (e) => {
       if (e.key.toLowerCase() !== "t" || e.repeat) return;
