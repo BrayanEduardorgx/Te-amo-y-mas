@@ -14,7 +14,7 @@
     // TIEMPOS DEFINITIVOS DE LA LETRA
     // Al terminar el sincronizador, copia la lista que genera y reemplaza [].
     // Una vez publicada, esta sincronizacion funcionara para todos los visitantes.
-    sincronizacion: [],
+    sincronizacion: [6.969, 14.356, 21.242, 27.988, 35.149, 42.084, 48.962, 55.902, 63.861, 69.709, 77.638, 83.249, 104.659, 111.577, 118.401, 125.396, 132.387, 139.289, 142.836, 146.508],
 
     // 9. MENSAJE FINAL
     final: {

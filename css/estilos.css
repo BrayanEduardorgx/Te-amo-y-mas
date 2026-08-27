@@ -885,6 +885,7 @@ body.sin-movimiento .pal-recuerdo::after { animation: none; }
   text-transform: uppercase;
   cursor: pointer;
 }
+#abrir-sincronizador:empty { display: none; }
 #abrir-sincronizador:hover { color: white; border-color: rgba(255,255,255,.5); }
 
 @media (prefers-reduced-motion: reduce) {
