@@ -364,7 +364,7 @@
   };
 
   const mostrarPoema = () => {
-    const claves = new Set(["Eres tú, tú-ru-ru", "Solo tú", "Tan solo tú", "Eres tú, yeah"]);
+    const claves = new Set(["Te amo ¡y más!", "En esta canción, va mi corazón"]);
     for (const fr of NE.guion.frases) {
       const texto = fr.palabras.map((p) => p.texto).join(" ");
       const linea = crear("div", "verso", finalEl);
@@ -544,7 +544,7 @@
     document.body.classList.add("modo-sincronizar");
     const textos = D.renglones.map((r) => r.palabras.map((p) => p[0]).join(" "));
     let marcas = [];
-    try { marcas = JSON.parse(localStorage.getItem("eres-tu-tiempos") || "[]"); } catch (e) {}
+    try { marcas = JSON.parse(localStorage.getItem("te-amo-y-mas-tiempos") || "[]"); } catch (e) {}
 
     const panel = crear("aside", "sincronizador", document.body);
     panel.innerHTML = `
@@ -574,7 +574,7 @@
       panel.querySelector('[data-sync="copiar"]').disabled = i < textos.length;
     };
     const guardarSync = () => {
-      localStorage.setItem("eres-tu-tiempos", JSON.stringify(marcas));
+      localStorage.setItem("te-amo-y-mas-tiempos", JSON.stringify(marcas));
       pintarSync();
     };
     const marcar = () => {

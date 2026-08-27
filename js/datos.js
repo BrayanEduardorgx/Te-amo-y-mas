@@ -14,91 +14,44 @@
   // ningun verso quede fuera de la experiencia.
   const ESTROFAS = [
     [
-      "Eres tú, tú-ru-ru",
-      "Eres tú, y tú, y tú, tú-ru-ru-ru",
-      "Mmm, oh, oh",
-      "Eres tú, yeah, tú-ru-ru-ru",
+      "Te amo y más de lo que puedes imaginar",
+      "Te amo además como nunca nadie jamás lo hará",
+      "En esta canción, va mi corazón",
+      "Amor más que amor es el nuestro y te lo vengo a dar",
     ],
     [
-      "La que me fascina",
-      "La que me domina",
-      "Mi mente se alinea cuando caminas",
+      "Te miro y más y más y más te quiero mirar",
+      "Te amo y sabrás puro sentimiento y no hay nada más",
+      "Y sueño llegar a tu alma tocar",
+      "Amor más que amor es el nuestro y te lo vengo a dar",
     ],
     [
-      "Eres tú la calma y la ruina",
-      "La voz que suena",
-      "Cuando el alma suspira",
+      "Ruego a Dios tenerte a mi lado",
+      "Y entonces poderte abrazar",
+      "Si no estás aquí algo falta",
+      "Yo por ti pelearé hasta el final",
     ],
     [
-      "Tus ojos son fuego en la neblina",
-      "Tu risa me quema, me ilumina",
-      "Y si no estás, el mundo gira",
-      "Pero sin rumbo, sin salida",
+      "Y sueño llegar a tu alma tocar",
+      "Amor más que amor es el nuestro y te lo vengo a dar",
     ],
     [
-      "Eres tú (tú, y tú, y tú)",
-      "Tú-ru-ru-ru (tú, y tú, y tú)",
-      "Eres tú (tú, y tú, y tú)",
-      "Tú-ru-ru-ru",
+      "Te amo ¡y más!",
+      "Te amo y sabrás que nadie como yo te amará",
+      "En esta canción yo veo quien soy",
     ],
     [
-      "Eres tú (tú, y tú, y tú)",
-      "Tú-ru-ru-ru (tú, y tú, y tú)",
-      "Eres tú (tú, y tú, y tú)",
-      "Tú-ru-ru-ru",
-    ],
-    [
-      "Eres tan perfecta",
-      "Tan sincera, tan real, que me desespera",
-      "Eres la razón por la que aún espero",
-      "La voz que suena cuando muero",
-    ],
-    [
-      "Eres tú la que me enciende por dentro",
-      "Eres tú mi mejor pensamiento",
-    ],
-    [
-      "Tus besos saben a calma y a miedo",
-      "A promesas que aún no entiendo",
-      "Tus abrazos detienen el tiempo",
-      "Y, en tus brazos, todo tiene sentido",
-    ],
-    [
-      "Tu mirada tan profunda y clara",
-      "Rompe el ruido, calla el alma",
-      "Y tu sonrisa, mi desgracia",
-      "Mi adicción, mi esperanza",
-    ],
-    [
-      "(Ah, ah, ah)",
-      "Solo tú",
-      "(Ah, ah)",
-      "Tan solo tú",
-      "(Ah, ah, ah)",
-      "Eres tú, yeah",
-    ],
-    [
-      "Eres tú (la que) me domina, mi dopamina, mi medicina",
-      "Eres tú (la que) la que me ilumina, mi calma, mi herida",
-      "Más y más de ti (ti, ti)",
-      "De ti, de ti (ti, ti)",
-      "Más y más de ti",
-      "Más, más, más, más de ti",
-      "De ti (tú, y tú, y tú)",
-      "(Tú, y tú, y tú)",
-      "Mucho más (tú, y tú, y tú)",
-      "Porque solo eres tú (tú, y tú, y tú)",
-      "Tan solo tú (tú, y tú, y tú)",
-      "Eres tú-ru-uh, tú-ru-ru-ru, tú, y tú, y tú, tú-ru",
-      "Tan solo tú, solo tú, y nada más, tú, tú-ru-ru-ru",
+      "Amor más que amor es el mío y lo siento",
+      "Amor más que amor es el tuyo y presiento",
+      "Amor más que amor será el nuestro si tú me lo das",
     ],
   ];
 
-  const DURACION = 288;
+  const DURACION = 155.2;
   // Retraso global para que el texto entre despues de la voz y no se adelante.
   const RETRASO_LETRA = 1.5;
-  const INICIO_VOZ = 6 + RETRASO_LETRA;
-  const FIN_VOZ = 284 + RETRASO_LETRA;
+  const INICIO_VOZ = 0.5 + RETRASO_LETRA;
+  const FIN_VOZ = DURACION - 3;
   const PAUSA_ESTROFA = 1.15;
   const lineas = ESTROFAS.flat();
   const pesoLinea = (linea) => Math.max(2.8, 1.4 + linea.length * 0.105);
@@ -109,14 +62,14 @@
     ? NE.personalizacion.sincronizacion.slice()
     : [];
   if (!tiemposGuardados.length) {
-    try { tiemposGuardados = JSON.parse(localStorage.getItem("eres-tu-tiempos") || "[]"); } catch (e) {}
+    try { tiemposGuardados = JSON.parse(localStorage.getItem("te-amo-y-mas-tiempos") || "[]"); } catch (e) {}
   }
   const tiemposValidos = tiemposGuardados.length === lineas.length &&
     tiemposGuardados.every((t, i) => Number.isFinite(t) && t >= 0 && (!i || t > tiemposGuardados[i - 1]));
   let cursor = INICIO_VOZ;
   let indice = 0;
 
-  datos.titulo = "Eres tú";
+  datos.titulo = "Te amo y más";
   datos.duracion = DURACION;
   datos.ajuste = 0;
   datos.bpm = 96;
