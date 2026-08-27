@@ -505,6 +505,7 @@ body.ligero #fogata-gl { opacity: 0.4; }
   pointer-events: none;
   white-space: nowrap;
 }
+#pista-sostener:empty { display: none; }
 #pista-sostener.visible { opacity: 1; }
 
 #final {
